@@ -17,7 +17,6 @@ public class LoginActivity extends AppCompatActivity {
     //Objeto encargada para el enlace de datos
     private ActivityLoginBinding binding;
     private EventHandler handlers;
-    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +43,10 @@ public class LoginActivity extends AppCompatActivity {
 
         public void onSaludoClick(View view){
 
-            Snackbar snackbar = Snackbar.make(view, "Hola Mundo", Snackbar.LENGTH_SHORT);
+            Usuario.nombre.set("Omar");
+            Usuario.password.set("1234");
+            binding.textView.setText(Usuario.nombre.get());
+            Snackbar snackbar = Snackbar.make(view, Usuario.nombre.get(), Snackbar.LENGTH_SHORT);
             snackbar.show();
 
         }

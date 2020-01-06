@@ -1,23 +1,18 @@
 package com.oaso.todo.model;
 
-public class Usuario {
+import androidx.databinding.BaseObservable;
+import androidx.databinding.ObservableField;
 
-    public String getNombre() {
+public class Usuario extends BaseObservable{
+
+    public static ObservableField<String> nombre = new ObservableField<>();
+    public static ObservableField<String> password = new ObservableField<>();
+
+    public ObservableField<String> getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getPassword() {
+    public ObservableField<String> getPassword() {
         return password;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    private String nombre;
-    private String password;
 }
