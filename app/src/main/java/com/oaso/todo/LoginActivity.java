@@ -10,7 +10,9 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.oaso.todo.databinding.ActivityLoginBinding;
+import com.oaso.todo.model.NuevoUsuario;
 import com.oaso.todo.model.Usuario;
+import com.oaso.todo.utils.observable.IObservador;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -43,10 +45,11 @@ public class LoginActivity extends AppCompatActivity {
 
         public void onSaludoClick(View view){
 
-            Usuario.nombre.set("Omar");
-            Usuario.password.set("1234");
-            binding.textView.setText(Usuario.nombre.get());
-            Snackbar snackbar = Snackbar.make(view, Usuario.nombre.get(), Snackbar.LENGTH_SHORT);
+            Usuario usuario = new Usuario("Alejandro", "asd");
+            IObservador observadorUsuario = new NuevoUsuario(usuario);
+            usuario.setNombre("Omar");
+            binding.textView.setText(usuario.getPassword());
+            Snackbar snackbar = Snackbar.make(view, usuario.getNombre(), Snackbar.LENGTH_SHORT);
             snackbar.show();
 
         }
